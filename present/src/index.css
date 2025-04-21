@@ -44,7 +44,7 @@
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.15em solid #d4af37; /* luxurious gold */
-  animation: typewriter 4s steps(50) 1s 1 normal both;
+  animation: typewriter 6s steps(50) 1s 1 normal both;
 }
 .rotate-x-180 {
   transform: rotateX(180deg);
