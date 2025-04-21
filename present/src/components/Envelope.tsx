@@ -94,7 +94,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
         </p>
         {/* Text */}
         <p className="absolute bottom left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-cormorant text-text text-center px-6 md:bottom-11 ">
-        ♕
+        𐙚
         </p>
       </div>
     </div>

@@ -4,16 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;600&display=swap');
 
+/* Disable default Cursor */
 @layer base {
   html, body {
     cursor: none !important;
 }
 }
 
-/* body{
-  cursor: none;
-} */
-
+/* Font throught the Project */
 @layer base {
   /* Ensure Cormorant Garamond renders cleanly with adjusted width */
   .font-cormorant {
@@ -23,10 +21,6 @@
   }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer components {
   /* Custom styles for better font control */
   .cormorant-heading {
@@ -34,6 +28,7 @@
   }
 }
 
+/* Typewriting */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -57,7 +52,7 @@
 
 
 
-/* Existing code... */
+/* Gallerry... */
 @keyframes infinite-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.33%); } /* One-third of the total width */
@@ -84,66 +79,4 @@
 .animate-infinite-left,
 .animate-infinite-right {
   will-change: transform;
-}
-
-
-/* Existing code... */
-.shooting-star {
-  position: absolute;
-  top: -60%; /* Start near top right */
-  right: -100%; /* Start from top right */
-  width: 6px;
-  height: 30px;
-  transform: translateY(100%) rotate(-75deg);
-  background: radial-gradient(circle, #C0C0C0, #C0C0C0); /* Gold palette */
-  border-radius: 50%;
-  box-shadow: 0 0 15px #D4AF37, 0 0 30px #D4AF37, 0 0 50px #D4AF37;
-  animation: fall 3.5s ease-in-out infinite, twinkle 1.5s ease-in-out infinite;
-}
-
-/* Tail effect using ::before */
-.shooting-star::before {
-  content: '';
-  position: absolute;
-  top: -60%;
-  left: -50%;
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(to left, rgba(212, 175, 55, 0), #D4AF37);
-  transform: translateY(-50%) rotate(-45deg);
-  filter: blur(3px);
-  opacity: 0.9;
-  /* animation: tailFade 3s ease-in-out forwards infinite; */
-}
-
-/* Falling animation */
-@keyframes fall {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(-80vw, 80vh) scale(0.3); /* Leftward fall */
-    opacity: 0;
-  }
-}
-
-
-/* Tail fade animation */
-@keyframes tailFade {
-  0% {
-    opacity: 0;
-    width: 20px;
-  }
-  30% {
-    opacity: 0.9;
-    width: 80px;
-  }
-  100% {
-    opacity: 0;
-    width: 60px;
-  }
 }

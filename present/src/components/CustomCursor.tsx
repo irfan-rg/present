@@ -16,6 +16,7 @@ const CustomCursor: React.FC = () => {
 
   return (
     <div className="fixed top-0 left-0 pointer-events-none z-[9999]">
+
       {/* Main cursor dot */}
       <div
         className="w-4 h-4 rounded-full"
