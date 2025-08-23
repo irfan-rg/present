@@ -27,29 +27,28 @@ const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-secondary py-20">
-      <div className="w-full max-w-6xl px-4">
-        <h2 className="cormorant-heading text-text mb-16 text-center font-light text-5xl">
+    <section className="min-h-screen flex items-center justify-center bg-secondary py-20 px-4 sm:px-6">
+      <div className="w-full max-w-6xl">
+        <h2 className="cormorant-heading text-text mb-8 sm:mb-16 text-center font-light text-3xl sm:text-5xl">
           Cherished Memories
         </h2>
         <div className="overflow-hidden">
           {/* Row 1: Left to Right */}
-          <div ref={row1Ref} className="flex animate-infinite-left whitespace-nowrap">
-            {/* Clone the content multiple times for seamless infinity */}
+          <div ref={row1Ref} className="flex animate-infinite-left whitespace-nowrap overflow-x-auto sm:overflow-visible scrollbar-hide">
             {[...Array(3)].flatMap(() => photosRow1).map((photo, index) => (
               <div
                 key={index}
-                className="inline-block w-80 h-80 mx-6 bg-cover bg-center rounded-lg border-2 border-text/50 hover:border-text transition-all"
+                className="inline-block min-w-[10rem] min-h-[10rem] w-40 h-60 sm:w-60 sm:h-80 mx-2 sm:mx-6 bg-cover bg-center rounded-lg border-2 border-text/50 hover:border-text transition-all flex-shrink-0"
                 style={{ backgroundImage: `url(${photo})` }}
               />
             ))}
           </div>
           {/* Row 2: Right to Left */}
-          <div ref={row2Ref} className="flex animate-infinite-right mt-12 whitespace-nowrap">
+          <div ref={row2Ref} className="flex animate-infinite-right mt-6 sm:mt-12 whitespace-nowrap overflow-x-auto sm:overflow-visible scrollbar-hide">
             {[...Array(3)].flatMap(() => photosRow2).map((photo, index) => (
               <div
                 key={index}
-                className="inline-block w-80 h-80 mx-6 bg-cover bg-center rounded-lg border-2 border-text/50 hover:border-text transition-all"
+                className="inline-block min-w-[10rem] min-h-[10rem] w-40 h-60 sm:w-60 sm:h-80 mx-2 sm:mx-6 bg-cover bg-center rounded-lg border-2 border-text/50 hover:border-text transition-all flex-shrink-0"
                 style={{ backgroundImage: `url(${photo})` }}
               />
             ))}

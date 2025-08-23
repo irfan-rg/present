@@ -25,7 +25,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
       }`}
     >
       <div
-        className="relative w-[400px] h-[500px] cursor-pointer"
+        className="relative w-[280px] h-[350px] sm:w-[400px] sm:h-[500px] cursor-pointer"
         onClick={handleClick}
         style={{ perspective: '1000px' }}
       >

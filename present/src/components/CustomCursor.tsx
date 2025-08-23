@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const CustomCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState<{ x: number; y: number }[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const updateCursor = (e: MouseEvent) => {
@@ -10,9 +11,21 @@ const CustomCursor: React.FC = () => {
       setTrail((prev) => [...prev.slice(-5), { x: e.clientX, y: e.clientY }]);
     };
 
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia('(max-width: 768px)').matches);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     window.addEventListener("mousemove", updateCursor);
-    return () => window.removeEventListener("mousemove", updateCursor);
+    return () => {
+      window.removeEventListener("mousemove", updateCursor);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
+
+  if (isMobile) return null;
 
   return (
     <div className="fixed top-0 left-0 pointer-events-none z-[9999]">

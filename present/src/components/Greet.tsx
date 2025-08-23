@@ -30,7 +30,7 @@ const Greet: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-primary text-center">
       <div className="w-full max-w-3xl px-4">
-        <h2 className="cormorant-heading text-text mb-16 text-center text-5xl font-light ">
+        <h2 className="cormorant-heading text-text mb-8 sm:mb-16 text-center font-light text-3xl sm:text-5xl">
           Birthday Wishes
         </h2>
         <p

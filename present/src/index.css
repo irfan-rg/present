@@ -37,21 +37,42 @@
 .animate-fadeIn {
   animation: fadeIn 2s ease-in-out;
 }
+
 @keyframes typewriter {
   from { width: 0; }
-  to { width: 116%; }
+  to { width: 100%; }
 }
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
 .animate-typewriter {
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.15em solid #d4af37; /* luxurious gold */
-  animation: typewriter 6s steps(50) 1s 1 normal both;
+  animation: 
+    typewriter 3s steps(40) 1s 1 normal both,
+    blink 0.75s step-end infinite;
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
 }
+
+.animate-typewriter::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0.15em;
+  background: #d4af37;
+  animation: blink 0.75s step-end infinite;
+}
+
 .rotate-x-180 {
   transform: rotateX(180deg);
 }
-
-
 
 /* Gallerry... */
 @keyframes infinite-left {
