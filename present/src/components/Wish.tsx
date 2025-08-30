@@ -74,7 +74,7 @@ const Wish: React.FC = () => {
         <h2 className="cormorant-heading text-text mb-8 sm:mb-16 text-center font-light text-3xl sm:text-5xl">
           Make a Wish
         </h2>
-        <p className="text-1.8xl font-comorant text-secondary-text mb-8">
+        <p className="text-1.8xl font-comorant text-secondary-text mb-8 -mt-8">
           A star is falling - make a wish!
         </p>
 
@@ -97,8 +97,8 @@ const Wish: React.FC = () => {
             </button>
           </form>
           {isWished && (
-            <p className="mt-4 text-1xl font-montserrat text-secondary-text">
-              Wish sent to the stars - do come True!
+            <p className="mt-8 text-1xl font-montserrat text-secondary-text">
+              Wish sent to Stars, do come True!
             </p>
           )}
         </div>

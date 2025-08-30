@@ -7,9 +7,16 @@ const Message: React.FC = () => (
       <div className="p-4 sm:p-8 bg-secondary rounded-lg shadow-lg">
         <p className="text-base sm:text-xl font-montserrat text-primary italic">
           Dear [Friend's Name],<br /><br />
-          Your friendship is a gift I cherish every day. Your laughter, kindness, and unstoppable spirit light up my world. Here's to celebrating you and all the incredible moments we'll share in the future.<br /><br />
-          With all my love,<br />
-          [Your Name]
+          
+          On this special day, I want to acknowledge the remarkable person you are. <br />Your dedication, integrity, and positive influence inspire everyone around you.<br /><br />
+          
+          May this new year bring you continued success, fulfillment, and joy in all your endeavors.
+          <br /> Your contributions make a meaningful difference.<br /><br />
+          
+          Wishing you a wonderful birthday and a prosperous year ahead.<br /><br />
+          
+          Best regards,<br />
+          Irfan
         </p>
       </div>
     </div>
