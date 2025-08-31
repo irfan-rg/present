@@ -25,7 +25,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
       }`}
     >
       <div
-        className="relative w-[280px] h-[350px] sm:w-[400px] sm:h-[500px] cursor-pointer"
+        className="relative w-[200px] h-[250px] sm:w-[280px] sm:h-[350px] md:w-[400px] md:h-[500px] cursor-pointer"
         onClick={handleClick}
         style={{ perspective: '1000px' }}
       >
@@ -89,11 +89,11 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
         </svg>
 
         {/* Text */}
-        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-cormorant text-text text-center px-6">
+        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-base sm:text-xl md:text-2xl font-cormorant font-italic text-text text-center px-4 sm:px-6">
           Open It !
         </p>
         {/* Text */}
-        <p className="absolute bottom left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-cormorant text-text text-center px-6 md:bottom-11 ">
+        <p className="absolute bottom-[38px] sm:bottom-[78px] left-1/2 -translate-x-1/2 translate-y-1/2 text-sm sm:text-3xl font-cormorant text-text text-center">
         𐙚
         </p>
       </div>

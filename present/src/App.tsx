@@ -16,7 +16,22 @@ import audioFile from './assets/music-bg.mp3';
 function App() {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                    window.innerWidth <= 768;
+      setIsMobile(mobile);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,20 +49,27 @@ function App() {
 
   useEffect(() => {
     if (isEnvelopeOpen) {
-      audioRef.current = new Audio(audioFile); // Assign to ref
+      audioRef.current = new Audio(audioFile);
       audioRef.current.loop = true;
       audioRef.current.volume = 0.5;
-      if (!isMuted) {
+      
+      // Only auto-play on desktop or if user has already interacted on mobile
+      if (!isMuted && (!isMobile || hasUserInteracted)) {
         audioRef.current.play().catch((err) => console.log("Audio play failed:", err));
       }
-      return () => audioRef.current?.pause(); // Cleanup
+      
+      return () => audioRef.current?.pause();
     }
-  }, [isEnvelopeOpen, isMuted]);
+  }, [isEnvelopeOpen, isMuted, isMobile, hasUserInteracted]);
 
   const toggleMute = () => {
     if (audioRef.current) {
+      // Mark that user has interacted (important for mobile)
+      setHasUserInteracted(true);
+      
       audioRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
+      
       if (!isMuted) {
         audioRef.current.play().catch((err) => console.log("Audio play failed:", err));
       }
@@ -56,10 +78,16 @@ function App() {
     }
   };
 
+  const handleEnvelopeOpen = () => {
+    setIsEnvelopeOpen(true);
+    // Mark user interaction when envelope is opened
+    setHasUserInteracted(true);
+  };
+
   return (
     <div className="text-cream-white bg-primary min-h-screen">
       <CustomCursor />
-      {!isEnvelopeOpen && <Envelope onOpen={() => setIsEnvelopeOpen(true)} />}
+      {!isEnvelopeOpen && <Envelope onOpen={handleEnvelopeOpen} />}
       {isEnvelopeOpen && (
         <div
           className="opacity-0 transition-opacity duration-1000 ease-in-out"

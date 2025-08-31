@@ -4,8 +4,8 @@ const Message: React.FC = () => (
       <h2 className="cormorant-heading text-text mb-4 sm:mb-16 text-center font-light text-2xl sm:text-5xl">
         From My Heart
       </h2>
-      <div className="p-4 sm:p-8 bg-secondary rounded-lg shadow-lg">
-        <p className="text-base sm:text-xl font-montserrat text-primary italic">
+      <div className="p-4 sm:p-8 bg-white rounded-lg shadow-lg">
+        <p className="text-sm sm:text-xl font-montserrat text-primary italic">
           Dear [Friend's Name],<br /><br />
           
           On this special day, I want to acknowledge the remarkable person you are. <br />Your dedication, integrity, and positive influence inspire everyone around you.<br /><br />

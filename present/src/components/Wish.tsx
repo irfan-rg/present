@@ -67,6 +67,88 @@ const Wish: React.FC = () => {
             opacity: 0;
           }
         }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+          .shooting-star {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 15px 3px rgb(202, 202, 202);
+            transform: rotate(-35deg);
+          }
+
+          .shooting-star::after {
+            left: -60px;
+            width: 60px;
+            height: 1.5px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), #e0d9b6);
+            filter: blur(1.5px);
+            opacity: 0.8;
+            border-radius: 1px;
+            transform: rotate(60deg);
+            transform-origin: right bottom;
+          }
+
+          @keyframes shooting {
+            0% {
+              transform: translate(-20px, -20px) rotate(-35deg);
+              opacity: 0;
+            }
+            10% {
+              transform: translate(10vw, 5vh) rotate(-35deg);
+              opacity: 1;
+            }
+            50% {
+              transform: translate(50vw, 25vh) rotate(-35deg);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(110vw, 40vh) rotate(-35deg);
+              opacity: 0;
+            }
+          }
+        }
+
+        /* Extra small mobile adjustments */
+        @media (max-width: 480px) {
+          .shooting-star {
+            width: 2.5px;
+            height: 2.5px;
+            box-shadow: 0 0 12px 2.5px rgb(202, 202, 202);
+            transform: rotate(-30deg);
+          }
+
+          .shooting-star::after {
+            left: -50px;
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), #e0d9b6);
+            filter: blur(1px);
+            opacity: 0.8;
+            border-radius: 0.5px;
+            transform: rotate(60deg);
+            transform-origin: right bottom;
+          }
+
+          @keyframes shooting {
+            0% {
+              transform: translate(-15px, -15px) rotate(-30deg);
+              opacity: 0;
+            }
+            15% {
+              transform: translate(15vw, 8vh) rotate(-30deg);
+              opacity: 1;
+            }
+            60% {
+              transform: translate(60vw, 30vh) rotate(-30deg);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(105vw, 45vh) rotate(-30deg);
+              opacity: 0;
+            }
+          }
+        }
       `}</style>
 
       {/* UI Content */}
