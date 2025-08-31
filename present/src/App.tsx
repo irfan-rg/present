@@ -15,23 +15,10 @@ import audioFile from './assets/music-bg.mp3';
 
 function App() {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Detect mobile device
-  useEffect(() => {
-    const checkMobile = () => {
-      const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-                    window.innerWidth <= 768;
-      setIsMobile(mobile);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,27 +38,36 @@ function App() {
     if (isEnvelopeOpen) {
       audioRef.current = new Audio(audioFile);
       audioRef.current.loop = true;
-      audioRef.current.volume = 0.5;
+      audioRef.current.volume = 0.8;
       
-      // Only auto-play on desktop or if user has already interacted on mobile
-      if (!isMuted && (!isMobile || hasUserInteracted)) {
-        audioRef.current.play().catch((err) => console.log("Audio play failed:", err));
-      }
+      // Audio will be muted initially
+      audioRef.current.muted = true;
       
-      return () => audioRef.current?.pause();
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current = null;
+        }
+      };
     }
-  }, [isEnvelopeOpen, isMuted, isMobile, hasUserInteracted]);
+  }, [isEnvelopeOpen]);
 
   const toggleMute = () => {
+    console.log("Toggle mute clicked, isMuted:", isMuted, "audioRef:", audioRef.current);
+    
     if (audioRef.current) {
-      // Mark that user has interacted (important for mobile)
-      setHasUserInteracted(true);
-      
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-      
-      if (!isMuted) {
+      if (isMuted) {
+        // Unmute and start playing
+        console.log("Unmuting and starting playback");
+        audioRef.current.muted = false;
         audioRef.current.play().catch((err) => console.log("Audio play failed:", err));
+        setIsMuted(false);
+      } else {
+        // Mute and pause
+        console.log("Muting and pausing");
+        audioRef.current.muted = true;
+        audioRef.current.pause();
+        setIsMuted(true);
       }
     } else {
       console.log("Audio ref is null, check initialization");
@@ -80,8 +76,6 @@ function App() {
 
   const handleEnvelopeOpen = () => {
     setIsEnvelopeOpen(true);
-    // Mark user interaction when envelope is opened
-    setHasUserInteracted(true);
   };
 
   return (

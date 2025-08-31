@@ -156,23 +156,23 @@ const Wish: React.FC = () => {
         <h2 className="cormorant-heading text-text mb-8 sm:mb-16 text-center font-light text-3xl sm:text-5xl">
           Make a Wish
         </h2>
-        <p className="text-1.8xl font-comorant text-secondary-text mb-8 -mt-8">
+        <p className="text-1.8xl font-comorant text-secondary-text mb-8 sm:mb-16 font-normal">
           A star is falling - make a wish!
         </p>
 
-        <div className="mt-16">
+        <div className="mt-8">
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
             <input
               type="text"
               value={wish}
               onChange={(e) => setWish(e.target.value)}
               placeholder="Type your wish here..."
-              className="w-[90%] sm:w-96 h-1 p-3.5 rounded-lg bg-secondary text-primary text-sm font-montserrat border-2 border-text/20 focus:border-text focus:outline-none resize-none transition-all"
+              className="w-[90%] sm:w-96 h-1 p-3.5 rounded-lg bg-primary/20 text-primary text-sm font-montserrat border-2 border-text/20 focus:border-text focus:outline-none resize-none transition-all"
               disabled={isWished}
             />
             <button
               type="submit"
-              className="mt-4 px-4 sm:px-6 py-2 bg-text text-primary rounded-lg hover:bg-text/80 transition-colors disabled:opacity-50 text-sm sm:text-base"
+              className="mt-5 px-4 sm:px-6 py-2 bg-text text-primary rounded-lg hover:bg-text/80 transition-colors disabled:opacity-50 text-sm sm:text-base"
               disabled={isWished || !wish}
             >
               Asked Everything?

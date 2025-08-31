@@ -1,7 +1,7 @@
 const Message: React.FC = () => (
   <section className="min-h-screen flex items-center justify-center bg-secondary text-center">
     <div className="w-full max-w-6xl px-4 sm:px-8">
-      <h2 className="cormorant-heading text-text mb-4 sm:mb-16 text-center font-light text-2xl sm:text-5xl">
+      <h2 className="cormorant-heading text-text mb-4 sm:mb-16 text-center font-light text-3xl sm:text-5xl">
         From My Heart
       </h2>
       <div className="p-4 sm:p-8 bg-white rounded-lg shadow-lg">

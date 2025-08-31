@@ -10,10 +10,11 @@ const Hero: React.FC = () => (
     ></video>
     <div className="absolute top-0 left-0 w-full h-full bg-primary opacity-50"></div>
     <div className="relative text-center z-10 flex flex-col items-center justify-center h-full px-4">
-      <h1 className="cormorant-heading text-text animate-fadeIn delay-300 font-light">
-        Happy Birthday, Friend's Name!
+      <h1 className="cormorant-heading text-text animate-fadeIn delay-300 font-light flex flex-col sm:flex-row justify-center items-center">
+        <span>Happy Birthday,</span>
+        <span className="sm:ml-2 mt-4">Friend's Name!</span>
       </h1>
-      <p className="mt-4 sm:mt-6 text-lg sm:text-2xl font-cormorant text-secondary-text animate-fadeIn delay-500">
+      <p className="mt-8 sm:mt-8 text-base sm:text-2xl font-cormorant text-secondary-text animate-fadeIn delay-500">
         A day to celebrate the extraordinary you.
       </p>
     </div>
