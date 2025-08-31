@@ -167,7 +167,7 @@ const Wish: React.FC = () => {
               value={wish}
               onChange={(e) => setWish(e.target.value)}
               placeholder="Type your wish here..."
-              className="w-[90%] sm:w-96 h-1 p-3.5 rounded-lg bg-primary/20 text-primary text-sm font-montserrat border-2 border-text/20 focus:border-text focus:outline-none resize-none transition-all"
+              className="w-[90%] sm:w-96 h-1 p-3.5 rounded-lg bg-primary/20 text-secondary-text text-sm font-montserrat border-2 border-text/20 focus:border-text focus:outline-none resize-none transition-all"
               disabled={isWished}
             />
             <button
